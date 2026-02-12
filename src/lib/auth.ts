@@ -6,12 +6,12 @@ export function hashPassphrase(passphrase: string): string {
 }
 
 export function verifyPassphrase(passphrase: string): boolean {
-  const expected = process.env.VALENTINE_PASS_HASH ?? '';
+  const expected = (process.env.VALENTINE_PASSPHRASE_HASH ?? '').trim();
   return expected.length > 0 && hashPassphrase(passphrase) === expected;
 }
 
 export async function setAuthCookie(): Promise<void> {
-  const token = process.env.VALENTINE_AUTH_TOKEN ?? '';
+  const token = (process.env.VALENTINE_AUTH_TOKEN ?? '').trim();
   (await cookies()).set('valentine_auth', token, {
     httpOnly: true,
     secure: process.env.NODE_ENV === 'production',

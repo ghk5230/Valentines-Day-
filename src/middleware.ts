@@ -3,7 +3,7 @@ import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
   const token = request.cookies.get('valentine_auth')?.value;
-  const expected = process.env.VALENTINE_AUTH_TOKEN;
+  const expected = (process.env.VALENTINE_AUTH_TOKEN ?? '').trim();
 
   // Protect /valentine — redirect to /login when not authenticated
   if (request.nextUrl.pathname.startsWith('/valentine')) {
