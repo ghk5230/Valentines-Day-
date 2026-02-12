@@ -174,9 +174,6 @@ PS: Sending you virtual flowers and chocolates since I couldn't come over`}
               draggable={false}
             />
           </div>
-          <p className="font-serif text-xl text-rose-700 italic">
-            Our CAPYkutti 🤎
-          </p>
         </motion.div>
       </div>
     </section>
