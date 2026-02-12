@@ -26,7 +26,7 @@ export function HeroSection({ content, onStartMagic, magicStarted }: HeroSection
           : { height: 'auto', opacity: 1 }
       }
       transition={{ duration: 0.8, ease: 'easeInOut' }}
-      className="relative h-screen-safe flex flex-col items-center justify-center px-6 overflow-hidden"
+      className="relative h-screen-safe flex flex-col items-center justify-center px-6"
     >
       {/* Background */}
       <div className="absolute inset-0 bg-gradient-to-br from-rose-100 via-pink-50 to-rose-100" />

@@ -4,6 +4,9 @@
         "/^Copy-Item \"C:\\\\Users\\\\harik\\\\Downloads\\\\capybara\\.jpg\" -Destination \"E:\\\\MAALU\\\\public\\\\photos\\\\capybara\\.jpg\" -Force$/": {
             "approve": true,
             "matchCommandLine": true
-        }
+        },
+        "git add": true,
+        "git commit": true,
+        "git push": true
     }
 }

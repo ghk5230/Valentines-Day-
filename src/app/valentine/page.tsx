@@ -24,7 +24,7 @@ function ValentineContent() {
   };
 
   return (
-    <div className="relative min-h-screen-safe overflow-x-hidden">
+    <div className="relative min-h-screen-safe">
       <HeroSection
         content={siteContent.hero}
         onStartMagic={handleStartMagic}
