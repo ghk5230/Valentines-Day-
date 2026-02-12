@@ -1,10 +1,19 @@
 'use client';
 
-import { useState, useRef, useCallback, useEffect } from 'react';
+import { useState, useRef, useCallback, useEffect, useMemo } from 'react';
 
 export interface Track {
   filename: string;
   title: string;
+}
+
+function shuffleArray<T>(arr: T[]): T[] {
+  const shuffled = [...arr];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
 }
 
 export interface MusicPlayerState {
@@ -20,6 +29,7 @@ export interface MusicPlayerState {
 }
 
 export function useMusicPlayer(playlist: Track[]): MusicPlayerState {
+  const shuffledPlaylist = useMemo(() => shuffleArray(playlist), [playlist]);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [trackIndex, setTrackIndex] = useState(0);
@@ -34,7 +44,7 @@ export function useMusicPlayer(playlist: Track[]): MusicPlayerState {
 
     // When track ends, go to next
     const handleEnded = () => {
-      setTrackIndex((prev) => (prev + 1) % playlist.length);
+      setTrackIndex((prev) => (prev + 1) % shuffledPlaylist.length);
     };
     audio.addEventListener('ended', handleEnded);
 
@@ -43,19 +53,19 @@ export function useMusicPlayer(playlist: Track[]): MusicPlayerState {
       audio.pause();
       audio.src = '';
     };
-  }, [playlist.length]);
+  }, [shuffledPlaylist.length]);
 
   // Update source when track changes
   useEffect(() => {
     const audio = audioRef.current;
-    if (!audio || playlist.length === 0) return;
-    const src = `/music/${playlist[trackIndex].filename}`;
+    if (!audio || shuffledPlaylist.length === 0) return;
+    const src = `/music/${shuffledPlaylist[trackIndex].filename}`;
     audio.src = src;
     if (isPlaying) {
       audio.play().catch(() => {});
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [trackIndex, playlist]);
+  }, [trackIndex, shuffledPlaylist]);
 
   const togglePlay = useCallback(() => {
     const audio = audioRef.current;
@@ -69,12 +79,12 @@ export function useMusicPlayer(playlist: Track[]): MusicPlayerState {
   }, []);
 
   const nextTrack = useCallback(() => {
-    setTrackIndex((prev) => (prev + 1) % playlist.length);
-  }, [playlist.length]);
+    setTrackIndex((prev) => (prev + 1) % shuffledPlaylist.length);
+  }, [shuffledPlaylist.length]);
 
   const prevTrack = useCallback(() => {
-    setTrackIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
-  }, [playlist.length]);
+    setTrackIndex((prev) => (prev - 1 + shuffledPlaylist.length) % shuffledPlaylist.length);
+  }, [shuffledPlaylist.length]);
 
   const setVolume = useCallback((v: number) => {
     setVolumeState(v);
@@ -86,14 +96,14 @@ export function useMusicPlayer(playlist: Track[]): MusicPlayerState {
   // iOS requires audio.play() inside a user gesture handler
   const startPlayback = useCallback(() => {
     const audio = audioRef.current;
-    if (!audio || playlist.length === 0) return;
-    audio.src = `/music/${playlist[trackIndex].filename}`;
+    if (!audio || shuffledPlaylist.length === 0) return;
+    audio.src = `/music/${shuffledPlaylist[trackIndex].filename}`;
     audio.play().then(() => setIsPlaying(true)).catch(() => {});
-  }, [playlist, trackIndex]);
+  }, [shuffledPlaylist, trackIndex]);
 
   return {
     isPlaying,
-    currentTrack: playlist[trackIndex] ?? { filename: '', title: 'No track' },
+    currentTrack: shuffledPlaylist[trackIndex] ?? { filename: '', title: 'No track' },
     volume,
     audioElement: audioRef.current,
     togglePlay,

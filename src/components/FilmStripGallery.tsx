@@ -153,7 +153,7 @@ Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and 
 
 I'm praying for you every day. So, see you soon.
 
-PS: Do check out the small perichazhi I've left you at the bottom of the page`}
+PS: Sending you virtual flowers and chocolates since I couldn't come over`}
             </p>
           </div>
         </motion.div>

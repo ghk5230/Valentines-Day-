@@ -64,6 +64,7 @@ export const siteContent = {
   playlist: [
     { filename: 'Janum_Janum.mp3', title: 'Janam Janam — Dilwale' },
     { filename: 'Mozhikalum (PenduJatt.Com.Se).mp3', title: 'Mozhikalum' },
+    { filename: 'Nenjukkul-Peidhidum-MassTamilan.com.mp3', title: 'Nenjukkul Peidhidum' },
     { filename: 'Sundari.mp3', title: 'Sundari' },
     { filename: 'Te_amo.mp3', title: 'Te Amo' },
   ],
