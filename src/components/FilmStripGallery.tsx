@@ -1,7 +1,11 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import { PhotoLightbox } from '@/components/PhotoLightbox';
+import { LoveLetter } from '@/components/LoveLetter';
+import { CountdownTimer } from '@/components/CountdownTimer';
 
 interface FilmStripGalleryProps {
   onClose?: () => void;
@@ -36,6 +40,15 @@ const VISIBLE_COUNT = 6;
 
 export function FilmStripGallery({ onClose }: FilmStripGalleryProps) {
   const [page, setPage] = useState(0);
+  const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  // Parallax: shift gallery photos slightly on scroll
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ['start end', 'end start'],
+  });
+  const parallaxY = useTransform(scrollYProgress, [0, 1], [40, -40]);
 
   // Total pages: cycle through sets of 6
   const totalPages = Math.ceil(ALL_IMAGES.length / VISIBLE_COUNT);
@@ -57,10 +70,11 @@ export function FilmStripGallery({ onClose }: FilmStripGalleryProps) {
   }
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-5xl mx-auto flex flex-col gap-12">
-        {/* ── Image slideshow grid ── */}
+    <section ref={sectionRef} className="py-20 px-4">
+      <div className="max-w-5xl mx-auto flex flex-col gap-16">
+        {/* ── Image slideshow grid with parallax ── */}
         <motion.div
+          style={{ y: parallaxY }}
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -85,7 +99,10 @@ export function FilmStripGallery({ onClose }: FilmStripGalleryProps) {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: i * 0.08 }}
                     style={{ transform: `rotate(${tilt}deg)` }}
-                    className="relative"
+                    className="relative cursor-pointer"
+                    whileHover={{ scale: 1.05, zIndex: 10 }}
+                    whileTap={{ scale: 0.97 }}
+                    onClick={() => setLightboxSrc(src)}
                   >
                     <div className="bg-gray-900 rounded-sm p-1 shadow-lg shadow-black/30">
                       <div className="flex justify-between px-1 py-0.5">
@@ -131,32 +148,11 @@ export function FilmStripGallery({ onClose }: FilmStripGalleryProps) {
           </div>
         </motion.div>
 
-        {/* ── Message section below the slideshow ── */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-2xl mx-auto text-center"
-        >
-          <h2 className="font-serif text-3xl sm:text-4xl text-rose-800 mb-6">
-            Dear Malootti 💕
-          </h2>
+        {/* ── Love Letter (envelope → typewriter) ── */}
+        <LoveLetter />
 
-          <div className="rounded-2xl p-6 sm:p-10 bg-gradient-to-br from-rose-50 to-pink-50 border-2 border-rose-200 shadow-lg">
-            <p className="text-stone-700 text-sm sm:text-base leading-relaxed whitespace-pre-wrap text-left">
-              {`Enth Parayaana Maalu. This is the first time I'm giving someone something "handmade", I'm glad that its you. I'm still a bit disheartened and disappointed that I could not build this gift to the extend I envisioned, because you deserve the best. It may seem basic but know that it took considerable effort and debugging.
-
-Now, excuses aside, I love you. Love you to the moon and back. I know things have not been as they should lately, I really pray that we settle our differences and uncertainities in the upcoming days and form the unbreakable bond we once dreamt of.
-
-Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and smother you with kisses. Cant wait for days we're gonna cuddle up, go binge eating and making memories.
-
-I'm praying for you every day. So, see you soon.
-
-PS: Sending you virtual flowers and chocolates since I couldn't come over`}
-            </p>
-          </div>
-        </motion.div>
+        {/* ── Countdown Timer to March 21 ── */}
+        <CountdownTimer targetDate="2026-03-21T00:00:00+05:30" />
 
         {/* ── Capybara surprise at the bottom ── */}
         <motion.div
@@ -176,6 +172,11 @@ PS: Sending you virtual flowers and chocolates since I couldn't come over`}
           </div>
         </motion.div>
       </div>
+
+      {/* ── Photo Lightbox ── */}
+      {lightboxSrc && (
+        <PhotoLightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />
+      )}
     </section>
   );
 }

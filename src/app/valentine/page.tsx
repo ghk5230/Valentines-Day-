@@ -8,6 +8,7 @@ import { useMusicPlayer } from '@/hooks/useMusicPlayer';
 import { HeroSection } from '@/components/HeroSection';
 import { FilmStripGallery } from '@/components/FilmStripGallery';
 import { MusicPlayer } from '@/components/MusicPlayer';
+import { FallingPetals } from '@/components/FallingPetals';
 import { DebugPanel } from '@/components/DebugPanel';
 
 function ValentineContent() {
@@ -32,14 +33,19 @@ function ValentineContent() {
       />
 
       {magicStarted && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-        >
-          {/* Film strip gallery + message + capybara */}
-          <FilmStripGallery />
-        </motion.div>
+        <>
+          {/* Falling petals overlay */}
+          <FallingPetals />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+          >
+            {/* Film strip gallery + love letter + countdown + capybara */}
+            <FilmStripGallery />
+          </motion.div>
+        </>
       )}
 
       {/* Music player (fixed bottom bar) */}
