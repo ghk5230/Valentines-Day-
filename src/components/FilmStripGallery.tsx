@@ -72,6 +72,17 @@ export function FilmStripGallery({ onClose }: FilmStripGalleryProps) {
   return (
     <section ref={sectionRef} className="py-20 px-4">
       <div className="max-w-5xl mx-auto flex flex-col gap-16">
+        {/* ── Section title ── */}
+        <motion.p
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-rose-400 font-serif text-lg italic tracking-wide"
+        >
+          Scroll down ↓
+        </motion.p>
+
         {/* ── Image slideshow grid with parallax ── */}
         <motion.div
           style={{ y: parallaxY }}

@@ -84,7 +84,7 @@ export function LoveLetter() {
             >
               <span className="text-5xl">💌</span>
               <p className="text-rose-700 font-serif text-lg italic">
-                Tap to open my letter...
+                Every heartbeat wrote a line in here...
               </p>
             </motion.div>
           </div>
