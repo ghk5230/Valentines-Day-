@@ -1,0 +1,9 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "npm install": true,
+        "/^Copy-Item \"C:\\\\Users\\\\harik\\\\Downloads\\\\capybara\\.jpg\" -Destination \"E:\\\\MAALU\\\\public\\\\photos\\\\capybara\\.jpg\" -Force$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}
