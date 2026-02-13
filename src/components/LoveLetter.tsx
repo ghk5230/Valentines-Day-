@@ -7,7 +7,9 @@ const MESSAGE = `Enth Parayaana Maalu. This is the first time I'm giving someone
 
 Now, excuses aside, I love you. Love you to the moon and back. I know things have not been as they should lately, I really pray that we settle our differences and uncertainities, in the upcoming days and form the unbreakable bond we always dreamt of.
 
-Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and smother you with kisses. Cant wait for those days we're gonna cuddle up, go binge eating , travel and make make memories that last a lifetime. I love you, dear Maalu. But these few lines on the screen can't measure the depth of emotion I feel for you. I really hope that I could be expressive enough to convey the depth of it when I finally have you in my arms soon( which i will btw)
+Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and smother you with kisses. Cant wait for those days we're gonna cuddle up, go binge eating , travel and make make memories that last a lifetime. Cant wait for the days we rock the bed and lie down staring into each others souls, sweaty and savouring each other till we slide into deep sleep. Cant wait for the days I wake up next to you, your drooling face in deep slumber the first thing I see every morning. Can't wait for the days we cook together, clean together and pretty much everything together. I miss your taste and I wanna taste you everyday for the rest of my days.
+
+I love you, dear Maalu. But these few lines on the screen can't measure the depth of emotion I feel for you. I really hope that I could be expressive enough to convey the depth of it when I finally have you in my arms soon( which i will btw)
 
 I'm praying for you every day. So, see you soon.
 

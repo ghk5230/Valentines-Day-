@@ -9,7 +9,7 @@ export const siteContent = {
      ────────────────────────────────────────────────────────────── */
   login: {
     title: 'DEAR മാളു',
-    subtitle: "I hope you like what I've come up with. It may not be perfect but I've poured my heart and soul into this because this is the first Valentine's gift (handmade you could say) I'm giving to someone. The passcode is the date of our first magical night in \"DD/MM/YYYY\" with slashes included.",
+    subtitle: "I hope you like what I've come up with. It may not be perfect but I've poured my heart and soul into this because this is the first Valentine's gift (handmade you could say) I'm giving to someone. The passcode will be revealed to you anytime after 00:00 , 14th February, German Standard Time.",
     hint: '',
     placeholder: 'Enter our secret passphrase…',
     buttonText: 'Enter our little world ❤️',
@@ -62,9 +62,11 @@ export const siteContent = {
      Supported formats: .mp3 .m4a .ogg .wav
      ────────────────────────────────────────────────────────────── */
   playlist: [
+    { filename: 'Aradhya.mp3', title: 'Aradhya' },
     { filename: 'Janum_Janum.mp3', title: 'Janam Janam — Dilwale' },
     { filename: 'Mozhikalum (PenduJatt.Com.Se).mp3', title: 'Mozhikalum' },
     { filename: 'Nenjukkul-Peidhidum-MassTamilan.com.mp3', title: 'Nenjukkul Peidhidum' },
+    { filename: 'Sevatha Pulla.mp3', title: 'Sevatha Pulla' },
     { filename: 'Sundari.mp3', title: 'Sundari' },
     { filename: 'Te_amo.mp3', title: 'Te Amo' },
   ],
