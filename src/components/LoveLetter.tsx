@@ -3,15 +3,15 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const MESSAGE = `Enth Parayaana Maalu. This is the first time I'm giving someone something "handmade", I'm glad that its you. I'm still a bit disheartened and disappointed that I could not build this gift to the extend I envisioned, because you deserve the best. It may seem basic but know that it took considerable effort and debugging.
+const MESSAGE = `Enth Parayaana Maalu. This is the first time I'm giving someone something "handmade", I'm really glad that its you. I'm still a bit disheartened that I could not build this gift to the grand extend I imagined, because you deserve the best. It may seem basic but know that it took considerable effort and a stubborn heart that would re-code from beginning with bits and pieces that remained after deleting. But there is invisible love in each and every pixel you see in your screen.
 
-Now, excuses aside, I love you. Love you to the moon and back. I know things have not been as they should lately, I really pray that we settle our differences and uncertainities in the upcoming days and form the unbreakable bond we once dreamt of.
+Now, excuses aside, I love you. Love you to the moon and back. I know things have not been as they should lately, I really pray that we settle our differences and uncertainities, in the upcoming days and form the unbreakable bond we always dreamt of.
 
-Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and smother you with kisses. Cant wait for days we're gonna cuddle up, go binge eating and making memories.
+Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and smother you with kisses. Cant wait for those days we're gonna cuddle up, go binge eating , travel and make make memories that last a lifetime. I love you, dear Maalu. But these few lines on the screen can't measure the depth of emotion I feel for you. I really hope that I could be expressive enough to convey the depth of it when I finally have you in my arms soon( which i will btw)
 
 I'm praying for you every day. So, see you soon.
 
-PS: Sending you virtual flowers and chocolates since I couldn't come over`;
+PS: Sending you virtual flowers and chocolates since I couldn't come over.`;
 
 function TypewriterText({ text, speed = 25 }: { text: string; speed?: number }) {
   const [displayed, setDisplayed] = useState('');

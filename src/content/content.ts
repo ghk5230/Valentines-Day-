@@ -9,7 +9,7 @@ export const siteContent = {
      ────────────────────────────────────────────────────────────── */
   login: {
     title: 'DEAR മാളു',
-    subtitle: "I hope you like what I've come up with. It may not be perfect but I've poured my heart and soul into this because this is the first Valentine's gift (handmade you could say) I'm giving to someone. Enter the day we first melted into an embrace DD/MM/YYYY.",
+    subtitle: "I hope you like what I've come up with. It may not be perfect but I've poured my heart and soul into this because this is the first Valentine's gift (handmade you could say) I'm giving to someone. The passcode is the date of our first magical night in \"DD/MM/YYYY\" with slashes included.",
     hint: '',
     placeholder: 'Enter our secret passphrase…',
     buttonText: 'Enter our little world ❤️',
