@@ -11,7 +11,7 @@ Happy Valentines Day my CAPYkutti, can't wait to recieve you at the airport and 
 
 I'm praying for you every day. So, see you soon.
 
-PS: Sending you virtual flowers and chocolates since I couldn't come over.`;
+PS: Can't wait for the day that I will finally make you mine in front of the whole world. Sending you a capybara messenger with virtual flowers and chocolates`;
 
 function TypewriterText({ text, speed = 25 }: { text: string; speed?: number }) {
   const [displayed, setDisplayed] = useState('');
